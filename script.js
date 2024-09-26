@@ -57,9 +57,9 @@ fetch('https://deckofcardsapi.com/api/deck/new/draw/?count=8').then(function (re
             score = 11
         }
 
-        else {score = Number(cards[i])}
+        else { score = Number(cards[i]) }
 
-       cardScores.push(score)
+        cardScores.push(score)
     }
 
     playerTotal = cardScores[0] + cardScores[1]
@@ -131,7 +131,7 @@ fetch('https://deckofcardsapi.com/api/deck/new/draw/?count=8').then(function (re
         finish.classList.remove('hidden')
         twistAgain.classList.remove('hidden')
         playerScore = playerTotalTwist
-        
+
         if (dealerTotal <= 16) {
             document.querySelector('.dealerThirdCard').classList.remove('hidden')
             dealerScore = dealerTotalTwist
