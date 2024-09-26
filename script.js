@@ -150,7 +150,7 @@ fetch('https://deckofcardsapi.com/api/deck/new/draw/?count=8').then(function (re
         twistAgain.classList.add('hidden')
         finish.classList.add('hidden')
 
-        if (dealerTotalTwist <= 16 && playerScore <= 21) {
+        if (dealerScore <= 16 && playerScore <= 21) {
             document.querySelector('.dealerFourthCard').classList.remove('hidden')
             dealerScore = dealerTotalFour
         }
