@@ -10,8 +10,10 @@
     <title>Blackjack</title>
 </head>
 
-<body class="p-2 bg-rose-700">
-    <h1 class="p-1 mb-2 text-8xl text-amber-400 font-bold">Let's play Blackjack!</h1>
+<body class="p-2 bg-rose-700 w-4/5 mx-auto static">
+    <header>
+        <h1 class="p-1 mb-2 text-8xl text-amber-400 font-bold">Let's play Blackjack!</h1>
+    </header>
     <button class="showInstructions p-2 mt-2 bg-red-600 text-amber-400 text-4xl font-bold rounded-lg">See
         Instructions</button>
     <div class="instructions text-4xl text-amber-400 hidden">
@@ -39,6 +41,8 @@
         <div class="dealer flex gap-2 hidden">
         </div>
     </div>
+    <div class="result mt-2 p-4 max-w-[60%] mx-auto bg-red-600 text-center text-3xl text-amber-400 rounded-lg hidden">
+    </div>
     <h2 class="p-2 mt-8 text-4xl text-amber-400 max-w-64 mx-auto">Player's cards</h2>
     <div class="drawnCards hidden p-2 flex gap-2">
         <div class="twist"></div>
@@ -54,9 +58,8 @@
         <button id="finish"
             class="finish p-4 mx-2 mt-2 bg-red-600 text-amber-400 text-4xl font-bold rounded-lg hidden">Finish</button>
     </div>
-    <div
-        class="result p-4 bg-red-600 text-2xl text-amber-400 max-w-96 mx-auto rounded-lg fixed bottom-96 right-48 hidden">
-    </div>
     <button class="newGame p-4 mt-2 mx-2 bg-red-600 text-amber-400 text-4xl font-bold rounded-lg hidden"
         onclick=location=URL>New Game</button>
 </body>
+<footer class="absolute bottom-0 left-0 p-2 mt-8 text-xl text-amber-400 mx-auto">&copy; 2024 Built using <a
+        href="https://www.deckofcardsapi.com/" target="_blank">deckofcardsapi.com</a></footer>
