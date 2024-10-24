@@ -2,7 +2,7 @@ const instructions = document.querySelector('.instructions')
 const hideInstructions = document.querySelector('.hideInstructions')
 const showInstructions = document.querySelector('.showInstructions')
 const deal = document.querySelector('.deal')
-const playerCards = document.querySelector('.drawnCards')
+const playerCards = document.querySelector('.playerCards')
 const dealer = document.querySelector('.dealer')
 const dealerAddCard = document.querySelector('.dealerAddCard')
 const addCard = document.querySelector('.twisted')
@@ -65,11 +65,11 @@ fetch('https://deckofcardsapi.com/api/deck/new/draw/?count=8').then(function (re
     playerTotal = cardScores[0] + cardScores[1]
     dealerTotal = cardScores[2] + cardScores[3]
     let playerTotalTwist = cardScores[0] + cardScores[1] + cardScores[4]
-    if ((playerTotalTwist > 21 || playerTotalTwist <= 16) && (cardScores[0] === 11 || cardScores[1] === 11 || cardScores[4] === 11)) {
+    if ((playerTotalTwist > 21 || playerTotalTwist <= 17) && (cardScores[0] === 11 || cardScores[1] === 11 || cardScores[4] === 11)) {
         playerTotalTwist = playerTotalTwist - 10
     }
     let dealerTotalTwist = cardScores[2] + cardScores[3] + cardScores[5]
-    if ((dealerTotalTwist > 21 || dealerTotalTwist <= 16) && (cardScores[2] === 11 || cardScores[3] === 11 || cardScores[5] === 11)) {
+    if ((dealerTotalTwist > 21 || dealerTotalTwist <= 17) && (cardScores[2] === 11 || cardScores[3] === 11 || cardScores[5] === 11)) {
         dealerTotalTwist = dealerTotalTwist - 10
     }
 
@@ -87,30 +87,30 @@ fetch('https://deckofcardsapi.com/api/deck/new/draw/?count=8').then(function (re
 
     playerCards.innerHTML += `
         <div class="playerCards">
-            <img src="${data.cards[0].image}" alt="${data.cards[0].value} of ${data.cards[0].suit}" class="max-w-48">
+            <img src="${data.cards[0].image}" alt="${data.cards[0].value} of ${data.cards[0].suit}" class="max-w-14 md:max-w-48 mx-auto">
         </div>
         <div class="playerCards">
-            <img src="${data.cards[1].image}" alt="${data.cards[1].value} of ${data.cards[1].suit}" class="max-w-48">
+            <img src="${data.cards[1].image}" alt="${data.cards[1].value} of ${data.cards[1].suit}" class="max-w-14 md:max-w-48 mx-auto">
         </div>
         <div class="thirdCard hidden">
-            <img src="${data.cards[4].image}" alt="${data.cards[4].value} of ${data.cards[4].suit}" class="max-w-48">
+            <img src="${data.cards[4].image}" alt="${data.cards[4].value} of ${data.cards[4].suit}" class="max-w-14 md:max-w-48 mx-auto">
         </div>
         <div class="fourthCard hidden">
-            <img src="${data.cards[6].image}" alt="${data.cards[6].value} of ${data.cards[6].suit}" class="max-w-48">
+            <img src="${data.cards[6].image}" alt="${data.cards[6].value} of ${data.cards[6].suit}" class="max-w-14 md:max-w-48 mx-auto">
         </div>`
 
     dealer.innerHTML += `
         <div>
-            <img src="${data.cards[2].image}" alt="${data.cards[2].value} of ${data.cards[2].suit}" class="mt-11 max-w-48">
+            <img src="${data.cards[2].image}" alt="${data.cards[2].value} of ${data.cards[2].suit}" class="mt-8 md:mt-11 max-w-14 md:max-w-48 mx-auto">
         </div>
         <div>
-            <img src="${data.cards[3].image}" alt="${data.cards[3].value} of ${data.cards[3].suit}" class="mt-11 max-w-48">
+            <img src="${data.cards[3].image}" alt="${data.cards[3].value} of ${data.cards[3].suit}" class="mt-8 md:mt-11 max-w-14 md:max-w-48 mx-auto">
         </div>
         <div class="dealerThirdCard hidden">
-            <img src="${data.cards[5].image}" alt="${data.cards[5].value} of ${data.cards[5].suit}" class="mt-11 max-w-48">
+            <img src="${data.cards[5].image}" alt="${data.cards[5].value} of ${data.cards[5].suit}" class="mt-8 md:mt-11 max-w-14 md:max-w-48 mx-auto">
         </div>
         <div class="dealerFourthCard hidden">
-            <img src="${data.cards[7].image}" alt="${data.cards[7].value} of ${data.cards[7].suit}" class="mt-11 max-w-48">
+            <img src="${data.cards[7].image}" alt="${data.cards[7].value} of ${data.cards[7].suit}" class="mt-8 md:mt-11 max-w-14 md:max-w-48 mx-auto">
         </div>`
 
     stick.addEventListener('click', function () {
@@ -132,7 +132,7 @@ fetch('https://deckofcardsapi.com/api/deck/new/draw/?count=8').then(function (re
         twistAgain.classList.remove('hidden')
         playerScore = playerTotalTwist
 
-        if (dealerTotal <= 16) {
+        if (dealerTotal <= 17) {
             document.querySelector('.dealerThirdCard').classList.remove('hidden')
             dealerScore = dealerTotalTwist
         }
@@ -150,7 +150,7 @@ fetch('https://deckofcardsapi.com/api/deck/new/draw/?count=8').then(function (re
         twistAgain.classList.add('hidden')
         finish.classList.add('hidden')
 
-        if (dealerScore <= 16 && playerScore <= 21) {
+        if (dealerScore <= 17 && playerScore <= 21) {
             document.querySelector('.dealerFourthCard').classList.remove('hidden')
             dealerScore = dealerTotalFour
         }
@@ -164,7 +164,7 @@ fetch('https://deckofcardsapi.com/api/deck/new/draw/?count=8').then(function (re
             return result.innerHTML += `
         <p>You scored ${playerScore}</p>
                 <p>Dealer scored ${dealerScore}</p>
-                <h6 class="p-2 text-8xl font-bold text-amber-400">
+                <h6 class="p-2 text-sm md:text-8xl font-bold text-amber-400">
                 You've gone bust, dealer wins</h6>`
         }
 
@@ -172,7 +172,7 @@ fetch('https://deckofcardsapi.com/api/deck/new/draw/?count=8').then(function (re
             return result.innerHTML += `
                 <p>You scored ${playerScore}</p>
                 <p>Dealer scored ${dealerScore}</p>
-                <h6 class="p-2 text-8xl font-bold text-amber-400">
+                <h6 class="p-2 text-sm md:text-8xl font-bold text-amber-400">
                 Dealer is bust, you win!</h6>`
         }
 
@@ -180,7 +180,7 @@ fetch('https://deckofcardsapi.com/api/deck/new/draw/?count=8').then(function (re
             return result.innerHTML += `
                 <p>You scored ${playerScore}</p>
                 <p>Dealer scored ${dealerScore}</p>
-                <h6 class="p-2 text-8xl font-bold text-amber-400">
+                <h6 class="p-2 text-sm md:text-8xl font-bold text-amber-400">
                 You're both bust, no one wins!</h6>`
         }
 
@@ -188,21 +188,21 @@ fetch('https://deckofcardsapi.com/api/deck/new/draw/?count=8').then(function (re
             return result.innerHTML += `
         <p>You scored ${playerScore}</p>
                 <p>Dealer scored ${dealerScore}</p>
-                <h6 class="p-2 text-8xl font-bold text-amber-400">
-                Player wins!</h6>`
+                <h6 class="p-2 text-sm md:text-8xl font-bold text-amber-400">
+                You win!</h6>`
         }
         else if (playerScore < dealerScore) {
             return result.innerHTML += `
         <p>You scored ${playerScore}</p>
                 <p>Dealer scored ${dealerScore}</p>
-                <h6 class="p-2 text-8xl font-bold text-amber-400">
+                <h6 class="p-2 text-sm md:text-8xl font-bold text-amber-400">
                 Dealer wins!</h6>`
         }
         else {
             return result.innerHTML += `
         <p>You scored ${playerScore}</p>
                 <p>Dealer scored ${dealerScore}</p>
-                <h6 class="p-2 text-8xl font-bold text-amber-400">
+                <h6 class="p-2 text-sm md:text-8xl font-bold text-amber-400">
                 It's a draw!</h6>`
         }
     }

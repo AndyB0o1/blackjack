@@ -10,56 +10,58 @@
     <title>Blackjack</title>
 </head>
 
-<body class="p-2 bg-rose-700 w-4/5 mx-auto relative">
+<body class="p-2 bg-rose-700 md:w-[90%] mx-auto">
     <header>
-        <h1 class="p-1 mb-2 text-8xl text-amber-400 font-bold">Let's play Blackjack!</h1>
+        <h1 class="p-1 mb-2 text-xl md:text-8xl text-amber-400 font-bold">Let's play Blackjack!</h1>
     </header>
-    <button class="showInstructions p-2 mt-2 bg-red-600 text-amber-400 text-4xl font-bold rounded-lg">See
+    <button class="showInstructions p-2 mt-2 bg-red-600 text-amber-400 text-sm md:text-4xl font-bold rounded-lg">See
         Instructions</button>
-    <div class="instructions text-4xl text-amber-400 hidden">
+    <div class="instructions flex flex-col gap-2 text-sm md:text-4xl text-amber-400 hidden">
         <p class="font-bold">How to play</p>
         <p>Your objective: score as close to 21 as possible and beat the dealer's score</p>
         <p>You lose if you go bust (score more than 21) or the dealer scores higher than you without going bust</p>
         <p>Click on the card deck to be dealt your first two cards</p>
         <p>If you think you need to add another card to get closer to 21, hit 'Twist' otherwise hit 'Stick'</p>
         <p>Aces count as 11 unless your current score is more than 21 in which case they count as 1</p>
-        <p>If the dealer's current score is under 16 they will always add another card</p>
+        <p>If the dealer's current score is under 17 they will always add another card</p>
         <p>Click 'Finish' to see the final result</p>
         <p>Let's go!</p>
-        <button class="hideInstructions p-2 mt-2 bg-red-600 text-amber-400 text-4xl font-bold rounded-lg">Hide
+        <button
+            class="hideInstructions p-2 mt-2 bg-red-600 text-amber-400 text-sm md:text-4xl font-bold rounded-lg">Hide
             Instructions</button>
     </div>
-    <h2 class="p-2 text-4xl text-amber-400 max-w-64 mx-auto">Dealer's cards</h2>
+    <h2 class="p-2 text-xl md:text-4xl text-amber-400 md:max-w-64 mx-auto">Dealer's cards</h2>
     <div class="p-2 flex gap-2 border border-amber-400 rounded-lg">
-        <div class="deck p-2 flex border-2 max-w-64 border-amber-400 rounded-lg">
+        <div class="deck p-2 flex border-2 max-w-20 md:max-w-64 border-amber-400 rounded-lg">
             <div>
-                <p class="max-w-52 mx-auto text-4xl text-amber-400">CARD DECK</p>
+                <p class="max-w-20 md:max-w-52 mx-auto text-[10px] md:text-4xl text-amber-400 text-center">CARD DECK</p>
                 <img class="deal" id="deal" src="https://deckofcardsapi.com/static/img/back.png"
-                    alt="back of playing cards" class="p-2 max-w-48 mx-auto">
+                    alt="back of playing cards" class="p-2 max-w-14 md:max-w-48 mx-auto">
             </div>
         </div>
         <div class="dealer flex gap-2 hidden">
         </div>
     </div>
-    <div class="result mt-2 p-4 max-w-[60%] mx-auto bg-red-600 text-center text-3xl text-amber-400 rounded-lg hidden">
+    <div
+        class="result mt-2 md:p-4 md:max-w-[60%] mx-auto bg-red-600 text-center text-sm md:text-3xl text-amber-400 rounded-lg hidden">
     </div>
-    <h2 class="p-2 mt-8 text-4xl text-amber-400 max-w-64 mx-auto">Player's cards</h2>
-    <div class="drawnCards hidden p-2 flex gap-2">
+    <h2 class="px-2 md:p-2 md:mt-8 text-xl md:text-4xl text-amber-400 md:max-w-64 mx-auto">Player's cards</h2>
+    <div class="playerCards hidden md:p-2 flex gap-2">
         <div class="twist"></div>
     </div>
     <div class="p-2 flex gap-4">
         <button id="twisted"
-            class="twisted p-4 mx-2 mt-2 bg-red-600 text-amber-400 text-4xl font-bold rounded-lg hidden">Twist</button>
+            class="twisted p-1 md:p-4 md:mx-2 md:mt-2 bg-red-600 text-amber-400 text-xs md:text-4xl font-bold rounded-lg hidden">Twist</button>
         <button id="twistAgain"
-            class="twistAgain p-4 mx-2 mt-2 bg-red-600 text-amber-400 font-bold text-4xl rounded-lg hidden">Twist
+            class="twistAgain p-1 md:p-4 md:mx-2 md:mt-2 bg-red-600 text-amber-400 font-bold text-xs md:text-4xl rounded-lg hidden">Twist
             Again</button>
         <button id="stick"
-            class="stick p-4 mx-2 mt-2 bg-red-600 text-amber-400 text-4xl font-bold rounded-lg hidden">Stick</button>
+            class="stick p-1 md:p-4 md:mx-2 md:mt-2 bg-red-600 text-amber-400 text-xs md:text-4xl font-bold rounded-lg hidden">Stick</button>
         <button id="finish"
-            class="finish p-4 mx-2 mt-2 bg-red-600 text-amber-400 text-4xl font-bold rounded-lg hidden">Finish</button>
+            class="finish p-1 md:p-4 md:mx-2 md:mt-2 bg-red-600 text-amber-400 text-xs md:text-4xl font-bold rounded-lg hidden">Finish</button>
     </div>
-    <button class="newGame p-4 mt-2 mx-2 bg-red-600 text-amber-400 text-4xl font-bold rounded-lg hidden"
+    <button class="newGame p-4 mt-2 mx-2 bg-red-600 text-amber-400 text-xs md:text-4xl font-bold rounded-lg hidden"
         onclick=location=URL>New Game</button>
+    <footer class="text-right p-2 text-xs md:text-xl text-amber-400 mx-auto">&copy; 2024 Built using <a
+            href="https://www.deckofcardsapi.com/" target="_blank">deckofcardsapi.com</a></footer>
 </body>
-<footer class="absolute bottom-0 right-0 p-2 mt-8 text-xl text-amber-400 mx-auto">&copy; 2024 Built using <a
-        href="https://www.deckofcardsapi.com/" target="_blank">deckofcardsapi.com</a></footer>
