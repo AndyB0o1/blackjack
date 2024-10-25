@@ -30,7 +30,8 @@
             class="hideInstructions p-2 mt-2 bg-red-600 text-amber-400 text-sm md:text-4xl font-bold rounded-lg">Hide
             Instructions</button>
     </div>
-    <h2 class="p-2 text-xl md:text-4xl text-amber-400 md:max-w-64 mx-auto">Dealer's cards</h2>
+    <h2 class="md:p-1 text-xl md:text-4xl text-amber-400 text-center mx-auto">Dealer's cards</h2>
+    <p class="play md:mb-1 text-xs md:text-xl text-amber-400 text-center mx-auto">(click on deck to start)</p>
     <div class="p-2 flex gap-2 border border-amber-400 rounded-lg">
         <div class="deck p-2 flex border-2 max-w-20 md:max-w-64 border-amber-400 rounded-lg">
             <div>
@@ -45,9 +46,11 @@
     <div
         class="result mt-2 md:p-4 md:max-w-[60%] mx-auto bg-red-600 text-center text-sm md:text-3xl text-amber-400 rounded-lg hidden">
     </div>
-    <h2 class="px-2 md:p-2 md:mt-8 text-xl md:text-4xl text-amber-400 md:max-w-64 mx-auto">Player's cards</h2>
-    <div class="playerCards hidden md:p-2 flex gap-2">
-        <div class="twist"></div>
+    <h2 class="px-2 md:p-2 md:mt-8 text-xl md:text-4xl text-amber-400 text-center mx-auto">Player's cards</h2>
+    <div class="playerContainer hidden p-2 flex gap-2 border border-amber-400 rounded-lg">
+        <div class="playerCards hidden md:p-2 flex gap-2">
+            <div class="twist"></div>
+        </div>
     </div>
     <div class="p-2 flex gap-4">
         <button id="twisted"

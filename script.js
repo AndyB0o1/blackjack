@@ -29,6 +29,8 @@ deal.addEventListener('click', function () {
     addCard.classList.remove('hidden')
     stick.classList.remove('hidden')
     document.getElementById("deal").disabled = true
+    document.querySelector('.play').classList.add('hidden')
+    document.querySelector('.playerContainer').classList.remove('hidden')
 })
 
 fetch('https://deckofcardsapi.com/api/deck/new/draw/?count=8').then(function (res) {
